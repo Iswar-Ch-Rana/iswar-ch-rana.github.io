@@ -19,27 +19,27 @@ function App() {
         <div className="min-h-screen bg-background text-foreground">
             <Helmet>
                 {/* ---------------------- PAGE TITLE ---------------------- */}
-                <title>Iswar Chandra Rana - Software Engineer</title>
+                <title>Iswar Chandra Rana - Software Engineer | Spring Boot, Node.js, Microservices</title>
 
                 {/* ---------------------- META DESCRIPTION ---------------------- */}
                 <meta
                     name="description"
-                    content="Portfolio of Iswar Chandra Rana — Software Engineer specializing in Spring Boot microservices, Java, AWS, Docker, distributed systems, and scalable backend development."
+                    content="Portfolio of Iswar Chandra Rana, Software Engineer specializing in Spring Boot and Node.js microservices, REST APIs, Angular-integrated applications, database optimization, AI-assisted engineering, and CI/CD delivery."
                 />
 
                 {/* ---------------------- KEYWORDS ---------------------- */}
                 <meta
                     name="keywords"
-                    content="Iswar Rana, Iswar Chandra Rana, Software Engineer, Java Developer, Spring Boot Developer, Microservices Engineer, Backend Developer, Portfolio"
+                    content="Iswar Chandra Rana, Software Engineer, Spring Boot Developer, Node.js Developer, Microservices Developer, Angular Developer, Database Optimization, AI-Assisted Engineering, CI/CD, REST API Developer, Portfolio"
                 />
 
                 <meta name="author" content="Iswar Chandra Rana" />
 
                 {/* ---------------------- OPEN GRAPH (SOCIAL SHARING) ---------------------- */}
-                <meta property="og:title" content="Iswar Chandra Rana - Software Engineer Portfolio" />
+                <meta property="og:title" content="Iswar Chandra Rana - Spring Boot, Node.js and Microservices Engineer" />
                 <meta
                     property="og:description"
-                    content="Explore my professional projects, experience, and technical skills in backend engineering, Java, Spring Boot, and cloud-native microservices."
+                    content="Explore my projects and experience in Spring Boot and Node.js backend engineering, microservices development, Angular-integrated delivery, database optimization, AI-assisted engineering, and CI/CD practices."
                 />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://iswarchandra.com" />
@@ -47,10 +47,10 @@ function App() {
 
                 {/* ---------------------- TWITTER TAGS ---------------------- */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Iswar Chandra Rana - Portfolio" />
+                <meta name="twitter:title" content="Iswar Chandra Rana - Software Engineer (Spring Boot, Node.js, Microservices)" />
                 <meta
                     name="twitter:description"
-                    content="Portfolio website of Iswar Chandra Rana showcasing backend engineering skills, projects, and professional experience."
+                    content="Portfolio of Iswar Chandra Rana showcasing Spring Boot and Node.js microservices work, Angular-integrated projects, database optimization, AI-assisted engineering, and CI/CD delivery."
                 />
 
                 <link rel="canonical" href="https://iswarchandra.com" />
@@ -65,10 +65,10 @@ function App() {
               "url": "https://iswarchandra.com",
               "sameAs": [
                 "https://github.com/Iswar-Ch-Rana",
-                "https://www.linkedin.com/in/iswar-chandra-rana/"
+                "https://www.linkedin.com/in/iswar-ch-rana"
               ],
               "jobTitle": "Software Engineer",
-              "description": "Backend & Microservices Engineer specializing in Java, Spring Boot, AWS, Docker, distributed systems, and performance optimization."
+              "description": "Software Engineer focused on Spring Boot and Node.js microservices, secure REST APIs, Angular-integrated solutions, database optimization, AI-assisted engineering, and CI/CD delivery."
             }
           `}
                 </script>

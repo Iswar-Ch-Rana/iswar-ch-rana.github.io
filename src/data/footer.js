@@ -5,7 +5,7 @@ import { site } from './site';
 export const footer = {
   owner: "Iswar Chandra Rana",
   blurb:
-    "Software Engineer specializing in Spring Boot and Node.js microservices, scalable backend systems, and cloud-native development.",
+    "Software Engineer working across Spring Boot and Node.js microservices, database optimization, AI-assisted engineering, and reliable CI/CD delivery.",
   // Use navigation items from site.js instead of duplicating
   quickLinks: site.navItems,
 };

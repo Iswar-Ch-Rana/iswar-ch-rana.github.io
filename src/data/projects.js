@@ -1,50 +1,63 @@
 export const projects = [
     {
-        title: "Enterprise Document Management System",
-        period: "June 2024 – Present",
+        title: "Arealytics - Real Estate Platform",
+        period: "June 2024 - Present",
         bullets: [
-            "Designed and developed a scalable Spring Boot microservice with AWS S3 for secure document storage and retrieval.",
-            "Integrated Stripe API to process payments for 500+ monthly transactions with webhook support.",
-            "Implemented government API integrations with robust error handling and retry mechanisms.",
-            "Containerized services using Docker and optimized CI/CD pipelines for zero-downtime deployments.",
-            "Achieved 99.9% application uptime with production-grade monitoring and logging.",
-        ],
-        links: {
-            code: null, // Private enterprise code
-            demo: null,
-        },
-        tags: ["Spring Boot", "AWS S3", "Stripe", "PostgreSQL", "Docker", "REST APIs"],
-    },
-
-    {
-        title: "Microservices Rules Engine",
-        period: "March 2024 – June 2024",
-        bullets: [
-            "Developed a centralized Rules Engine using Drools for dynamic business validations across multiple services.",
-            "Reduced code complexity by 40% by externalizing rule logic from application code.",
-            "Enabled on-the-fly rule updates without code redeployment, improving flexibility for 15+ business scenarios.",
-            "Optimized execution flow, reducing processing time by 50%.",
+            "Migrated a legacy Node.js and stored procedure-based platform to Spring Boot with a clean layered architecture and 40% performance improvement.",
+            "Introduced a centralized Drools Rules Engine for 30+ business rules, enabling updates without code redeployment.",
+            "Optimized query and procedure performance from 30 seconds to under 5 seconds and improved retrieval by 95% with denormalization.",
+            "Standardized database changes with Flyway and improved deployment reliability using containerized workflows.",
+            "Implemented blue-green deployment for Keycloak with Redis-backed user state management.",
         ],
         links: {
             code: null,
             demo: null,
         },
-        tags: ["Drools", "Spring Boot", "PostgreSQL", "Microservices", "Rule Engine"],
+        tags: ["Spring Boot", "Node.js", "MySQL", "Drools", "Flyway", "Keycloak", "Docker", "Redis"],
     },
-
     {
-        title: "Performance Optimization & Legacy Migration",
-        period: "January 2024 – April 2024",
+        title: "AreaDocs - Land and Building Document Management",
+        period: "June 2024 - Present",
         bullets: [
-            "Migrated a legacy Node.js + Stored Procedure based module to Spring Boot, improving performance by 40%.",
-            "Optimized database queries with indexing and rewritten joins, reducing execution time from 30s to under 5s (83% gain).",
-            "Implemented clean layered architecture with DTOs, services, and repository patterns.",
-            "Improved system maintainability and reduced tech debt significantly.",
+            "Built RESTful APIs following OpenAPI 3.0 with Spring Security, robust exception handling, and pagination.",
+            "Designed an atomic ledger system using double-entry principles to ensure data integrity and full auditability.",
+            "Integrated external SERV API and AWS S3 for secure document management.",
+            "Dockerized the Spring Boot service for consistent deployments across environments.",
+            "Implemented modular service-oriented design with clear separation of concerns for microservices readiness.",
         ],
         links: {
             code: null,
             demo: null,
         },
-        tags: ["Spring Boot", "Node.js Migration", "SQL Optimization", "Indexing", "Microservices"],
+        tags: ["Spring Boot", "PostgreSQL", "AWS S3", "OpenAPI 3.0", "Docker", "Keycloak"],
+    },
+    {
+        title: "DineFlow - Restaurant Automation System",
+        period: "Academic and Personal Project",
+        bullets: [
+            "Built a full-stack application using Spring Boot and Angular for order management, customer feedback, and reporting.",
+            "Optimized data access with Spring Data JPA entity design and query tuning, improving performance by 20%.",
+            "Implemented secure RBAC with Spring Security and validated API contracts using Postman.",
+            "Applied clean service layering and maintainable API design patterns for extensible feature growth.",
+        ],
+        links: {
+            code: null,
+            demo: null,
+        },
+        tags: ["Spring Boot", "Angular", "Spring Data JPA", "Hibernate", "MySQL", "Spring Security"],
+    },
+    {
+        title: "Achievements and Recognition",
+        period: "Career Highlights",
+        bullets: [
+            "Achieved 83% query time reduction and 95% data retrieval gain through denormalization and query redesign.",
+            "Delivered 40% system performance improvement after migrating legacy backend modules to Spring Boot.",
+            "Solved 300+ problems on LeetCode and 350+ problems on GeeksforGeeks, strengthening problem-solving depth.",
+        ],
+        links: {
+            code: null,
+            demo: null,
+        },
+        tags: ["Performance Optimization", "Backend Engineering", "Problem Solving"],
     },
 ];

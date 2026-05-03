@@ -13,6 +13,6 @@ export const site = {
     // { label: "Certifications", sectionId: "certifications" },
     { label: "Contact", sectionId: "contact" },
   ],
-  resumeUrl: "https://drive.google.com/file/d/1e8uC5R97nyIar3fRCo9ZMQ9MICmoJcQ7/view?usp=sharing",
+  resumeUrl: "https://drive.google.com/file/d/1FctlJx_tfZJYuBkA2kzl26qQKWhCnBlk/view?usp=drive_link",
   resumeLabel: "Resume",
 };

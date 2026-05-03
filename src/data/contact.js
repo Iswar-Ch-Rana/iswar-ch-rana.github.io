@@ -5,7 +5,8 @@ import { profile } from './profile';
 export const contact = {
   heading: "Contact Me",
   subheading: "Get In Touch",
-  intro: "Feel free to contact me for any work or suggestions below.",
+  intro: "Open to software engineering roles, backend collaboration, and project discussions.",
+  phone: "+91-9040529121",
   // Use social links from profile.js instead of duplicating
   email: profile.social.email,
   linkedin: profile.social.linkedin,
