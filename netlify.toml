@@ -1,8 +1,9 @@
 # The portfolio lives on GitHub Pages now. Netlify still builds this repo, so
-# send every request on the old iswarchandrarana.netlify.app address there.
+# send every request on the old iswarchandrarana.netlify.app address to its
+# home page (the site is a single page, so deeper paths would 404 there).
 # GitHub Pages ignores this file.
 [[redirects]]
   from = "/*"
-  to = "https://iswar-ch-rana.github.io/:splat"
+  to = "https://iswar-ch-rana.github.io/"
   status = 301
   force = true
