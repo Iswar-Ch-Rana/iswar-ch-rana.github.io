@@ -4,21 +4,20 @@ This is a personal portfolio website of Iswar Chandra Rana built with React to s
 
 ## Features
 
-- Responsive design optimized for all devices
-- Interactive UI with smooth scrolling
-- Project showcase section
-- Skills and experience timeline
-- Contact form
-- Deployed with GitHub Pages
+- Space-themed design: animated starfield, glowing gradient headings, glass cards
+- Hero with orbiting tech-stack icons and a typing role line
+- Experience timeline, project cards, skills grid and a DSA dashboard
+- Contact form (FormSubmit)
+- All content lives in `src/data/*.js` — edit those files, not the components
+- Responsive, and respects the reduced-motion setting
 
 ## Technologies Used
 
-- React.js
-- Tailwind CSS
-- Framer Motion
-- Radix UI Components
-- JavaScript
-- GitHub Pages for hosting
+- React 19 + Vite 8
+- Tailwind CSS 4
+- Motion (formerly Framer Motion)
+- react-icons
+- Node.js 24 (see `.nvmrc`)
 
 ## Local Development
 
@@ -28,17 +27,19 @@ This is a personal portfolio website of Iswar Chandra Rana built with React to s
    cd iswar-ch-rana.github.io
    ```
 
-2. Install dependencies
+2. Use Node 24 and install dependencies
    ```
+   nvm use
    npm install
    ```
 
 3. Start the development server
    ```
-   npm start
+   npm run dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+4. Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+   `npm run build` writes the production site to `build/`; `npm run preview` serves it.
 
 ## Deployment
 

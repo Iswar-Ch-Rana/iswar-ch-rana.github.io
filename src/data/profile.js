@@ -3,16 +3,16 @@ import iswarPic from "../Assets/iswar_ch_rana.png";
 export const profile = {
     name: "Iswar Chandra Rana",
     titles: [
-        "Software Engineer",
-        "Backend Engineer",
-        "Spring Boot and Node.js Developer",
-        "Microservices and REST API Development",
-        "Angular-Integrated Full-Stack Delivery"
+        "Software Engineer II",
+        "Java Backend Developer",
+        "Spring Boot & Microservices",
+        "System Design (HLD / LLD)",
+        "Node.js & TypeScript",
     ],
     bio: [
-        "Backend Software Engineer with 2+ years of hands-on Spring Boot and Node.js development, building production-grade REST APIs and modernizing legacy systems.",
-        "Experienced with Spring Security, Spring Data JPA, Drools, Flyway, Keycloak, Docker, and modular backend architecture aligned with microservices principles and database optimization.",
-        "Also worked on Angular-integrated application flows, with a focus on AI-assisted engineering with MCP, performance optimization, and reliable CI/CD delivery."
+        "Software Engineer II with 2+ years building backend systems that stay fast and correct under real load, in Java, Spring Boot and Node.js. I design before I build: HLD, LLD, API contracts and engineering standards.",
+        "At Zessta I own the design of Arealytics' metered B2B Data API: multi-tenant field- and state-level entitlements, a record-level billing ledger and idempotent API-key provisioning on AWS API Gateway. I'm leading its rebuild on Java 25 and Spring Boot 4.",
+        "Before that I migrated a platform serving 5K–10K users from legacy Node.js to Spring Boot (40% faster), cut stored-procedure query time from 30s to under 5s, and built an open-source MySQL MCP server for AI-assisted query tuning.",
     ],
     image: iswarPic,
     social: {

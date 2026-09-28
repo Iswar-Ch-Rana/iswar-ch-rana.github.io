@@ -1,83 +1,27 @@
-// src/components/Certifications.js
-import React, { useState } from 'react';
-import ReactCardFlip from 'react-card-flip';
-import { FaAws, FaGithub } from 'react-icons/fa';
+import Section from './ui/Section';
+import Reveal from './ui/Reveal';
 import { certifications, certificationsMeta } from '../data/certifications';
 
-const Certifications = () => {
-  const [isFlipped, setIsFlipped] = useState(Array(certifications.length).fill(false));
-
-  const handleFlip = (idx) => {
-    setIsFlipped((prev) => prev.map((v, i) => (i === idx ? !v : v)));
-  };
-
-  // Icon mapping
-  const getIcon = (iconType) => {
-    const icons = {
-      aws: <FaAws size={40} className="mx-auto mb-3 text-[#FF9900]" />,
-      github: <FaGithub size={40} className="mx-auto mb-3 text-foreground" />,
-    };
-    return icons[iconType] || null;
-  };
-
-  // Background color mapping for card flip
-  const getBgColor = (iconType) => {
-    const colors = {
-      aws: 'bg-[#FF9900]',
-      github: 'bg-foreground',
-    };
-    return colors[iconType] || 'bg-primary';
-  };
-
+export default function Certifications() {
   return (
-    <section id="certifications" className="py-16 sm:py-20 lg:py-24 bg-foreground/[0.02]">
-      <div className="container text-center">
-        <div className="mb-12">
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">{certificationsMeta.heading}</h2>
-          <p className="mt-2 text-muted-foreground">{certificationsMeta.subtitle}</p>
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {certifications.map((cert, idx) => (
-            <ReactCardFlip key={idx} isFlipped={isFlipped[idx]} flipDirection="horizontal">
-              {/* Front Side */}
-              <div
-                className="rounded-md border border-border bg-card p-6 shadow-sm cursor-pointer"
-                onClick={() => handleFlip(idx)}
-              >
-                {getIcon(cert.icon)}
-                <h3 className="text-lg font-semibold">{cert.name}</h3>
-                <p className="text-sm text-muted-foreground">Issued By: {cert.issuer}</p>
-                <p className="text-sm text-muted-foreground">{cert.period}</p>
-                <a
-                  href={cert.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-3 text-primary font-medium"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  View Certificate
-                </a>
-              </div>
-
-              {/* Back Side */}
-              <div
-                className={`rounded-md border border-border ${getBgColor(cert.icon)} p-4 text-white cursor-pointer`}
-                onClick={() => handleFlip(idx)}
-              >
-                <img
-                  src={cert.image}
-                  alt={`${cert.name} Certificate`}
-                  className="w-full h-auto rounded-md"
-                  loading="lazy"
-                />
-              </div>
-            </ReactCardFlip>
-          ))}
-        </div>
+    <Section id="certifications" title={certificationsMeta.heading} subtitle={certificationsMeta.subtitle}>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {certifications.map((c, i) => (
+          <Reveal key={c.name} delay={i * 0.08} className="h-full">
+            <a
+              href={c.link}
+              target="_blank"
+              rel="noreferrer"
+              className="glass glow-hover flex h-full flex-col items-center rounded-2xl p-6 text-center"
+            >
+              <img src={c.image} alt="" loading="lazy" className="h-28 w-28 object-contain" />
+              <h3 className="mt-4 text-base font-semibold">{c.name}</h3>
+              <p className="mt-1 text-sm text-cyan-300">{c.issuer}</p>
+              <p className="mt-1 text-xs text-slate-500">{c.period}</p>
+            </a>
+          </Reveal>
+        ))}
       </div>
-    </section>
+    </Section>
   );
-};
-
-export default Certifications;
+}

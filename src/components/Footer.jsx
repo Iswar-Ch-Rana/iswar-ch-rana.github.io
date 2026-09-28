@@ -1,80 +1,47 @@
-import React from 'react';
-import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
-import { footer as footerData } from '../data/footer';
-import { contact } from '../data/contact';
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { footer } from '../data/footer';
+import { profile } from '../data/profile';
 
-const Footer = () => {
-    return (
-        <footer className="mt-16 border-t border-border bg-foreground/[0.02]">
-            <div className="container py-10">
-                <div className="flex flex-col md:flex-row gap-8 md:gap-4 justify-between">
+export default function Footer() {
+  const social = [
+    { href: profile.social.linkedin, Icon: FaLinkedin, label: 'LinkedIn' },
+    { href: profile.social.github, Icon: FaGithub, label: 'GitHub' },
+    { href: `mailto:${profile.social.email}`, Icon: FaEnvelope, label: 'Email' },
+  ];
 
-                    {/* ----- Name & Description ----- */}
-                    <div className="space-y-2">
-                        <h3 className="text-lg font-semibold">{footerData.owner}</h3>
-                        <p className="max-w-md text-sm text-muted-foreground">
-                            {footerData.blurb}
-                        </p>
-                    </div>
-
-                    {/* ----- Quick Links ----- */}
-                    <div>
-                        <h3 className="text-lg font-semibold">Links</h3>
-                        <ul className="mt-3 grid grid-cols-6 gap-x-6 gap-y-2 text-sm">
-                            {footerData.quickLinks.map((item) => (
-                                <li key={item.sectionId}>
-                                    <a className="hover:text-primary transition-colors" href={`#${item.sectionId}`}>{item.label}</a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* ----- Social Links ----- */}
-                    <div>
-                        <h3 className="text-lg font-semibold">Connect</h3>
-                        <ul className="mt-3 flex items-center gap-4">
-                            <li>
-                                <a
-                                    className="hover:text-primary transition-colors"
-                                    href={contact.linkedin}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="LinkedIn"
-                                >
-                                    <FaLinkedin size={20} />
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    className="hover:text-primary transition-colors"
-                                    href={contact.github}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="GitHub"
-                                >
-                                    <FaGithub size={20} />
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    className="hover:text-primary transition-colors"
-                                    href={`mailto:${contact.email}`}
-                                    aria-label="Email"
-                                >
-                                    <FaEnvelope size={20} />
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                {/* ----- Bottom Line ----- */}
-                <div className="mt-8 border-t border-border pt-4 text-center text-xs text-muted-foreground">
-                    <p>&copy; {new Date().getFullYear()} {footerData.owner}. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
-    );
-};
-
-export default Footer;
+  return (
+    <footer className="border-t border-violet-400/10 bg-space-950/60 backdrop-blur">
+      <div className="mx-auto grid max-w-[88rem] gap-10 px-5 py-12 sm:px-8 md:grid-cols-3 lg:px-12">
+        <div>
+          <p className="font-display text-lg font-semibold text-white">{footer.owner}</p>
+          <p className="mt-2 text-sm text-slate-400">{footer.blurb}</p>
+        </div>
+        <nav aria-label="Footer">
+          <p className="font-display font-semibold text-white">Links</p>
+          <ul className="mt-3 grid grid-cols-2 gap-2 text-sm">
+            {footer.quickLinks.map((l) => (
+              <li key={l.sectionId}>
+                <a href={`#${l.sectionId}`} className="text-slate-400 hover:text-cyan-300">
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div>
+          <p className="font-display font-semibold text-white">Connect</p>
+          <div className="mt-3 flex gap-3">
+            {social.map(({ href, Icon, label }) => (
+              <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} className="glass glow-hover grid h-10 w-10 place-items-center rounded-full text-slate-200">
+                <Icon size={16} />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+      <p className="border-t border-white/5 py-5 text-center text-xs text-slate-500">
+        © {new Date().getFullYear()} {footer.owner}. All rights reserved.
+      </p>
+    </footer>
+  );
+}
