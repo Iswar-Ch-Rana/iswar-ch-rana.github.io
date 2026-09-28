@@ -52,7 +52,8 @@ function CloudIcon({ item, index, row }) {
         animate={{ y: [0, -5, 0] }}
         transition={{ duration: 4 + (index % 3), repeat: Infinity, ease: 'easeInOut', delay: (index + row) * 0.2 }}
       />
-      <span className="pointer-events-none absolute top-full left-1/2 z-10 mt-2 -translate-x-1/2 rounded-md bg-space-800/95 px-2 py-0.5 text-xs whitespace-nowrap text-slate-200 opacity-0 transition-opacity group-hover:opacity-100">
+      {/* hover-only label; hidden on phones, where it can't show and would widen the page */}
+      <span className="pointer-events-none absolute top-full left-1/2 z-10 mt-2 hidden -translate-x-1/2 rounded-md bg-space-800/95 px-2 py-0.5 text-xs whitespace-nowrap text-slate-200 opacity-0 transition-opacity group-hover:opacity-100 md:block">
         {item.name}
       </span>
     </motion.div>
