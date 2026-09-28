@@ -43,12 +43,10 @@ This is a personal portfolio website of Iswar Chandra Rana built with React to s
 
 ## Deployment
 
-To deploy to GitHub Pages:
-```
-npm run deploy
-```
-
-This will build the project and deploy it to GitHub Pages.
+Every push to `main` builds the site and deploys it to GitHub Pages at
+[https://iswar-ch-rana.github.io/](https://iswar-ch-rana.github.io/)
+(`.github/workflows/deploy-pages.yml`). To redeploy without a push, run the
+workflow from the Actions tab.
 
 ## License
 
