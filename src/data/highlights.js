@@ -1,6 +1,9 @@
 // capability cards shown under the hero, and the problem-solving dashboard.
-// every number comes from the resume; DSA figures as of 2026-09-28, from the
-// LeetCode, GeeksforGeeks and takeUforward profiles.
+// capability numbers come from the resume; DSA numbers come from dsa-stats.json,
+// which scripts/update-dsa-stats.mjs refreshes daily from the three profiles.
+import dsaStats from "./dsa-stats.json";
+
+const fmt = (n) => n.toLocaleString("en-IN");
 
 export const stats = [
   {
@@ -43,15 +46,35 @@ export const stats = [
 export const dsa = {
   heading: "Problem Solving",
   subtitle: "Data structures and algorithms practice across three platforms.",
+  updatedAt: dsaStats.updatedAt,
   platforms: [
-    { name: "GeeksforGeeks", solved: 623, detail: "Institute rank 15 · 70-day longest streak", url: "https://www.geeksforgeeks.org/profile/ranabitu227", icon: "gfg" },
-    { name: "LeetCode", solved: 433, detail: "179 easy · 209 medium · 45 hard", url: "https://leetcode.com/u/iswar_2000", icon: "leetcode" },
-    { name: "takeUforward", solved: 336, detail: "Global rank 1,188", url: "https://takeuforward.org/profile/iswar_2000", icon: "tuf" },
+    {
+      name: "GeeksforGeeks",
+      solved: dsaStats.gfg.solved,
+      detail: `Institute rank ${dsaStats.gfg.instituteRank} · ${dsaStats.gfg.longestStreak}-day longest streak`,
+      url: "https://www.geeksforgeeks.org/profile/ranabitu227",
+      icon: "gfg",
+    },
+    {
+      name: "LeetCode",
+      solved: dsaStats.leetcode.solved,
+      detail: `${dsaStats.leetcode.easy} easy · ${dsaStats.leetcode.medium} medium · ${dsaStats.leetcode.hard} hard`,
+      url: "https://leetcode.com/u/iswar_2000",
+      icon: "leetcode",
+    },
+    {
+      name: "takeUforward",
+      solved: dsaStats.tuf.solved,
+      detail: `Global rank ${fmt(dsaStats.tuf.globalRank)}`,
+      url: "https://takeuforward.org/profile/iswar_2000",
+      icon: "tuf",
+    },
   ],
   activity: [
-    { value: "764", label: "submissions in 12 months" },
-    { value: "257", label: "active days" },
-    { value: "77", label: "day best streak" },
+    { value: fmt(dsaStats.activity.contributions), label: "contributions in 12 months" },
+    { value: fmt(dsaStats.activity.activeDays), label: "active days" },
+    { value: fmt(dsaStats.activity.bestStreak), label: "day best streak" },
   ],
   repo: { label: "DSA solutions in Java, 18 topics", url: "https://github.com/Iswar-Ch-Rana/DSA_Java" },
 };
+

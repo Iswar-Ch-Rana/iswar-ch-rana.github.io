@@ -1,0 +1,38 @@
+name: Update DSA stats
+
+on:
+  schedule:
+    - cron: '30 2 * * *' # 08:00 IST, daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - run: node scripts/update-dsa-stats.mjs
+
+      # commit only when the numbers moved, then redeploy; a push made with
+      # GITHUB_TOKEN doesn't start other workflows, so dispatch the deploy
+      - name: Commit and redeploy if changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- src/data/dsa-stats.json; then
+            echo "No change; nothing to deploy."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Update DSA stats"
+          git push
+          gh workflow run deploy-pages.yml --ref main

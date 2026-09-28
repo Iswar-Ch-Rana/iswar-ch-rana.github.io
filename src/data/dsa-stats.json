@@ -1,0 +1,23 @@
+{
+  "leetcode": {
+    "solved": 433,
+    "easy": 179,
+    "medium": 209,
+    "hard": 45
+  },
+  "gfg": {
+    "solved": 623,
+    "instituteRank": 15,
+    "longestStreak": 70
+  },
+  "tuf": {
+    "solved": 336,
+    "globalRank": 1122
+  },
+  "activity": {
+    "contributions": 764,
+    "activeDays": 257,
+    "bestStreak": 77
+  },
+  "updatedAt": "2026-09-29"
+}

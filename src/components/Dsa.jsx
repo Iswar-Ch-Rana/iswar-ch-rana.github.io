@@ -11,6 +11,10 @@ const ICONS = {
   tuf: { Icon: FaCode, color: '#f97316' },
 };
 
+// updatedAt is a plain YYYY-MM-DD date; read it as UTC so no timezone shifts the day
+const formatDate = (iso) =>
+  new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+
 export default function Dsa() {
   const total = dsa.platforms.reduce((sum, p) => sum + p.solved, 0);
   const max = Math.max(...dsa.platforms.map((p) => p.solved));
@@ -33,6 +37,11 @@ export default function Dsa() {
                 </div>
               ))}
             </dl>
+            {dsa.updatedAt && (
+              <p className="mt-5 text-[11px] text-slate-600">
+                Synced daily · updated {formatDate(dsa.updatedAt)}
+              </p>
+            )}
           </div>
         </Reveal>
 
