@@ -23,8 +23,9 @@ export default function App() {
         <About />
         <Experience />
         <Projects />
-        <Skills />
+        {/* problem solving opens the skills block, so the Skills nav link lands on it */}
         <Dsa />
+        <Skills />
         <Education />
         <Certifications />
         <Contact />

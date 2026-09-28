@@ -9,7 +9,7 @@ export const site = {
     { label: "About", sectionId: "about" },
     { label: "Experience", sectionId: "experience" },
     { label: "Projects", sectionId: "projects" },
-    { label: "Skills", sectionId: "skills" },
+    { label: "Skills", sectionId: "dsa" }, // opens on Problem Solving, then the tech stack
     { label: "Education", sectionId: "education" },
     { label: "Contact", sectionId: "contact" },
   ],
