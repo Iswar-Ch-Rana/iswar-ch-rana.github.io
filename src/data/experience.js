@@ -5,7 +5,7 @@ export const experience = [
         period: "July 2026 - Present",
         project: "Arealytics Data API: metered B2B Data-as-a-Service",
         bullets: [
-            "Authored the HLD, LLD, API contract and engineering standards for a per-record-metered REST API over 223K+ commercial lease records; redesigned auth and throttling from in-app OAuth2/JWT onto AWS API Gateway (API keys, usage plans).",
+            "Co-authored the HLD, LLD, API contract and engineering standards for a per-record-metered REST API over 223K+ commercial lease records; redesigned auth and throttling from in-app OAuth2/JWT onto AWS API Gateway (API keys, usage plans).",
             "Built a multi-tenant entitlement engine on a 9-table MySQL control plane: tiered access to a type-safe 143-field allowlist plus state-level scoping. Denied columns never reach the SQL, and out-of-scope records return 404 to prevent enumeration.",
             "Designed a record-level billing ledger where a unique key enforces one charge per record per month through idempotent upserts, replacing a drift-prone counter.",
             "Designed idempotent API-key provisioning (DB-first writes, Idempotency-Key checks, secrets never stored) and a reconciler that keeps AWS in sync with the database.",

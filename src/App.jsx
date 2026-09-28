@@ -11,10 +11,6 @@ import Education from './components/Education';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { site } from './data/site';
-
-// certifications show only when their nav entry is enabled in data/site.js
-const showCertifications = site.navItems.some((item) => item.sectionId === 'certifications');
 
 export default function App() {
   return (
@@ -30,7 +26,7 @@ export default function App() {
         <Skills />
         <Dsa />
         <Education />
-        {showCertifications && <Certifications />}
+        <Certifications />
         <Contact />
       </main>
       <Footer />

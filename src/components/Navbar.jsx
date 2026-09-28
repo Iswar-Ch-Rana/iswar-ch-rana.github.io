@@ -9,23 +9,35 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
+    // the active link is the last nav section whose top has passed 40% of the
+    // viewport, worked out from the scroll position so scrolling back up (or
+    // through sections without a nav link) never leaves a stale highlight
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      setScrolled(window.scrollY > 12);
+      const sections = site.navItems
+        .map((item) => document.getElementById(item.sectionId))
+        .filter(Boolean);
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      let current = sections[0]?.id ?? '';
+      for (const el of sections) {
+        if (el.getBoundingClientRect().top <= window.innerHeight * 0.4) current = el.id;
+      }
+      // a short last section may never reach the 40% line
+      if (atBottom && sections.length) current = sections[sections.length - 1].id;
+      setActive(current);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
     window.addEventListener('scroll', onScroll, { passive: true });
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) if (entry.isIntersecting) setActive(entry.target.id);
-      },
-      { rootMargin: '-45% 0px -50% 0px' },
-    );
-    for (const item of site.navItems) {
-      const el = document.getElementById(item.sectionId);
-      if (el) observer.observe(el);
-    }
+    window.addEventListener('resize', onScroll);
     return () => {
       window.removeEventListener('scroll', onScroll);
-      observer.disconnect();
+      window.removeEventListener('resize', onScroll);
+      cancelAnimationFrame(frame);
     };
   }, []);
 

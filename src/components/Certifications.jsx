@@ -2,22 +2,35 @@ import Section from './ui/Section';
 import Reveal from './ui/Reveal';
 import { certifications, certificationsMeta } from '../data/certifications';
 
+// a short strip of badge tiles: image on the left, name and issuer beside it
 export default function Certifications() {
   return (
-    <Section id="certifications" title={certificationsMeta.heading} subtitle={certificationsMeta.subtitle}>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <Section id="certifications" title={certificationsMeta.heading} subtitle={certificationsMeta.subtitle} compact>
+      {/* centred wrap, so a short list stays balanced instead of hugging the left */}
+      <div className="flex flex-wrap justify-center gap-3">
         {certifications.map((c, i) => (
-          <Reveal key={c.name} delay={i * 0.08} className="h-full">
+          <Reveal key={c.name} delay={i * 0.05} className="w-full sm:w-80">
             <a
               href={c.link}
               target="_blank"
               rel="noreferrer"
-              className="glass glow-hover flex h-full flex-col items-center rounded-2xl p-6 text-center"
+              className="glass glow-hover flex h-full items-center gap-3 rounded-xl p-3"
             >
-              <img src={c.image} alt="" loading="lazy" className="h-28 w-28 object-contain" />
-              <h3 className="mt-4 text-base font-semibold">{c.name}</h3>
-              <p className="mt-1 text-sm text-cyan-300">{c.issuer}</p>
-              <p className="mt-1 text-xs text-slate-500">{c.period}</p>
+              {c.icon ? (
+                <span
+                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg"
+                  style={{ backgroundColor: `${c.tint}26` }}
+                >
+                  <img src={c.image} alt="" loading="lazy" className="h-6 w-6" />
+                </span>
+              ) : (
+                <img src={c.image} alt="" loading="lazy" className="h-12 w-12 shrink-0 object-contain" />
+              )}
+              <span className="min-w-0">
+                <span className="block text-sm leading-snug font-medium text-slate-100">{c.name}</span>
+                <span className="mt-0.5 block text-xs text-cyan-300/80">{c.issuer}</span>
+                {c.period && <span className="block text-xs whitespace-nowrap text-slate-500">{c.period}</span>}
+              </span>
             </a>
           </Reveal>
         ))}
