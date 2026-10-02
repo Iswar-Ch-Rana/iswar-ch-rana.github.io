@@ -8,7 +8,9 @@ const CELL = 11;
 const STEP = CELL + 3;
 const LEFT = 30; // room for the weekday labels
 const TOP = 18; // room for the month labels
-const COLORS = ['rgb(255 255 255 / 0.06)', '#4c1d95', '#7c3aed', '#818cf8', '#22d3ee'];
+// one violet hue stepping up evenly in lightness, so busier days read brighter; the
+// lowest step keeps 2:1 contrast with the card so a single submission still shows
+const COLORS = ['rgb(255 255 255 / 0.06)', '#533596', '#7f59db', '#a991f9', '#d5ccff'];
 const DAY = 86_400_000;
 
 // dates are handled as UTC midnights so no timezone shifts a day
