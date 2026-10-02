@@ -3,6 +3,7 @@ import { FaCode, FaGithub } from 'react-icons/fa';
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
 import Section from './ui/Section';
 import Reveal from './ui/Reveal';
+import Heatmap from './ui/Heatmap';
 import { dsa } from '../data/highlights';
 
 const ICONS = {
@@ -82,6 +83,21 @@ export default function Dsa() {
             )}
           </div>
         </Reveal>
+
+        {Object.keys(dsa.heatmap.days).length > 0 && (
+          <Reveal delay={0.15} className="min-w-0 md:col-span-2">
+            <div className="glass rounded-2xl p-6 sm:p-8">
+              <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <a href={dsa.heatmap.url} target="_blank" rel="noreferrer" className="group flex items-center gap-2 font-medium text-slate-100">
+                  {dsa.heatmap.title}
+                  <FaArrowUpRightFromSquare size={11} className="text-slate-500 transition group-hover:text-cyan-300" />
+                </a>
+                <p className="text-xs text-slate-500">{dsa.heatmap.caption}</p>
+              </div>
+              <Heatmap days={dsa.heatmap.days} thresholds={dsa.heatmap.thresholds} unit="submission" />
+            </div>
+          </Reveal>
+        )}
       </div>
     </Section>
   );

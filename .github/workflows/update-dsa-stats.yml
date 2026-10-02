@@ -27,12 +27,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if git diff --quiet -- src/data/dsa-stats.json; then
+          if [ -z "$(git status --porcelain -- src/data/dsa-stats.json src/data/heatmaps.json)" ]; then
             echo "No change; nothing to deploy."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -am "Update DSA stats"
+          git add src/data/dsa-stats.json src/data/heatmaps.json
+          git commit -m "Update DSA stats"
           git push
           gh workflow run deploy-pages.yml --ref main

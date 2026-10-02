@@ -1,5 +1,8 @@
 // public GitHub projects only, so every card has code a visitor can open.
 // work projects (Arealytics, AreaDocs, the Data API) live in experience.js.
+import heatmaps from "./heatmaps.json";
+import { profile } from "./profile";
+
 export const projects = [
     {
         title: "JewelCart - Multi-Vendor Jewellery E-Commerce Backend",
@@ -52,3 +55,13 @@ export const projects = [
         tags: ["Java", "Design Patterns", "LLD", "HLD", "Concurrency", "Redis"],
     },
 ];
+
+// the contribution calendar under the cards: the page fetches it live from a public
+// CORS-enabled mirror of GitHub's calendar, and shows the copy that
+// scripts/update-dsa-stats.mjs saves daily until then, or if that fetch fails
+export const github = {
+    title: "GitHub contributions",
+    days: heatmaps.github ?? {},
+    liveUrl: "https://github-contributions-api.jogruber.de/v4/Iswar-Ch-Rana?y=last",
+    url: profile.social.github,
+};

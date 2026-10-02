@@ -1,7 +1,9 @@
 // capability cards shown under the hero, and the problem-solving dashboard.
 // capability numbers come from the resume; DSA numbers come from dsa-stats.json,
-// which scripts/update-dsa-stats.mjs refreshes daily from the three profiles.
+// which scripts/update-dsa-stats.mjs refreshes daily from the three profiles,
+// along with the activity calendar in heatmaps.json.
 import dsaStats from "./dsa-stats.json";
+import heatmaps from "./heatmaps.json";
 
 const fmt = (n) => n.toLocaleString("en-IN");
 
@@ -76,5 +78,13 @@ export const dsa = {
     { value: fmt(dsaStats.activity.bestStreak), label: "day best streak" },
   ],
   repo: { label: "DSA solutions in Java, 18 topics", url: "https://github.com/Iswar-Ch-Rana/DSA_Java" },
+  // takeUforward's calendar combines all three platforms; its colour steps are reused
+  heatmap: {
+    title: "Consistency",
+    caption: "Daily submissions on takeUforward, LeetCode and GeeksforGeeks",
+    days: heatmaps.tuf ?? {},
+    thresholds: [1, 2, 4, 7],
+    url: "https://takeuforward.org/profile/iswar_2000",
+  },
 };
 

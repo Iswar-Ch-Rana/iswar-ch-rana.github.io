@@ -6,7 +6,7 @@ This is a personal portfolio website of Iswar Chandra Rana built with React to s
 
 - Space-themed design: animated starfield, glowing gradient headings, glass cards
 - Hero with orbiting tech-stack icons and a typing role line
-- Experience timeline, project cards, skills grid and a DSA dashboard
+- Experience timeline, project cards, skills grid and a DSA dashboard, with takeUforward and GitHub activity heatmaps synced daily
 - Contact form (FormSubmit)
 - All content lives in `src/data/*.js` — edit those files, not the components
 - Responsive, and respects the reduced-motion setting

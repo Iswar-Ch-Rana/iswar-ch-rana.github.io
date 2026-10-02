@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
 import Section from './ui/Section';
 import Reveal from './ui/Reveal';
-import { projects } from '../data/projects';
+import Heatmap from './ui/Heatmap';
+import { projects, github } from '../data/projects';
 
 const PREVIEW_BULLETS = 3;
 
@@ -64,7 +65,25 @@ function ProjectCard({ project }) {
   );
 }
 
+// the live calendar as { date: count } for the active days, or null if it can't be read
+async function fetchGithubDays(signal) {
+  const res = await fetch(github.liveUrl, { signal });
+  if (!res.ok) return null;
+  const { contributions } = await res.json();
+  if (!Array.isArray(contributions) || contributions.length < 365) return null;
+  return Object.fromEntries(contributions.filter((d) => d.count > 0).map((d) => [d.date, d.count]));
+}
+
 export default function Projects() {
+  const [githubDays, setGithubDays] = useState(github.days);
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchGithubDays(controller.signal)
+      .then((days) => days && setGithubDays(days))
+      .catch(() => {}); // keep the saved copy
+    return () => controller.abort();
+  }, []);
+
   return (
     <Section id="projects" title="Projects" subtitle="Systems I've built and the results they delivered.">
       <div className="grid gap-6 md:grid-cols-2">
@@ -74,6 +93,23 @@ export default function Projects() {
           </Reveal>
         ))}
       </div>
+
+      {Object.keys(githubDays).length > 0 && (
+        <Reveal className="mt-6">
+          <div className="glass rounded-2xl p-6 sm:p-8">
+            <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <a href={github.url} target="_blank" rel="noreferrer" className="group flex items-center gap-2 font-medium text-slate-100">
+                <FaGithub size={18} /> {github.title}
+                <FaArrowUpRightFromSquare size={11} className="text-slate-500 transition group-hover:text-cyan-300" />
+              </a>
+              <p className="text-xs text-slate-500">
+                {Object.values(githubDays).reduce((sum, n) => sum + n, 0).toLocaleString('en-IN')} contributions in the last year
+              </p>
+            </div>
+            <Heatmap days={githubDays} />
+          </div>
+        </Reveal>
+      )}
     </Section>
   );
 }
